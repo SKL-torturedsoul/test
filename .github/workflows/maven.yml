@@ -29,5 +29,12 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn clean install -f monitoring/pom.xml
+    - name: Build & push Docker image
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+          image: sklewer/monitoring
+          tags: latest
+          registry: docker.io
+          dockerfile: monitoring/Dockerfile
 
   
