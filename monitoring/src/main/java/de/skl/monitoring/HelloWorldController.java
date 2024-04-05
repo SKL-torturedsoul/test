@@ -16,7 +16,8 @@ public class HelloWorldController {
   @GetMapping("/")
   @ResponseBody
   public Greeting sayHello(@RequestParam(name="name", required=false, defaultValue="Stranger") String name) {
-    return new Greeting(counter.incrementAndGet(), String.format(template, name));
+	  System.out.println("New item with number: " + counter + " created");	  
+	  return new Greeting(counter.incrementAndGet(), String.format(template, name));
   }
 
 }
